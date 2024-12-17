@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Name": "gael",
+    "Firstname": "schenck",
+    "Ranking": 542
+  },
+  {
+    "Id": 2,
+    "Name": "rofer",
+    "Firstname": "gederrer",
+    "Ranking": 2
+  },
+  {
+    "Id": 3,
+    "Name": "pate",
+    "Firstname": "sempres",
+    "Ranking": 45
+  }
+]
