@@ -16,5 +16,11 @@
     "Name": "pate",
     "Firstname": "sempres",
     "Ranking": 45
+  },
+  {
+    "Id": 4,
+    "Name": "NewPlayer",
+    "Firstname": "string",
+    "Ranking": 25
   }
 ]

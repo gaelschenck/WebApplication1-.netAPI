@@ -1,5 +1,11 @@
+using WebApplication1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+// configure dependency injection
+
+builder.Services.AddScoped<IPlayerService, PlayerServiceByFile>();
 // Add services to the container.
 
 builder.Services.AddControllers();

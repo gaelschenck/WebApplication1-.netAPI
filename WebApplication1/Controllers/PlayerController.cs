@@ -9,11 +9,11 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private readonly PlayerService _playerService;
+        private readonly IPlayerService _playerService;
 
-        public PlayerController()
+        public PlayerController(IPlayerService playerService)
         {
-            _playerService = new PlayerService();
+            _playerService = playerService;
         }
 
         // GET : api/players

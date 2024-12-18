@@ -3,12 +3,12 @@ using Newtonsoft.Json;
 
 namespace WebApplication1.Services
 {
-    public class PlayerService
+    public class PlayerServiceByFile : IPlayerService
     {
         private const string FilePath = "players.json";
         private List<Player> _players;
 
-        public PlayerService()
+        public PlayerServiceByFile()
         {
             LoadPlayers();
         }
@@ -16,7 +16,7 @@ namespace WebApplication1.Services
         //va chercher le fichier json et en extrait les données sous forme de string
         private void LoadPlayers()
         {
-            if(File.Exists(FilePath))
+            if (File.Exists(FilePath))
             {
                 var json = File.ReadAllText(FilePath);
                 var players = JsonConvert.DeserializeObject<List<Player>>(json);
@@ -31,7 +31,7 @@ namespace WebApplication1.Services
         //utilise un string des données et le met en forme au format Json avant d'enregistrer
         private void SavePlayers()
         {
-            var json = JsonConvert.SerializeObject( _players, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(_players, Formatting.Indented);
             File.WriteAllText(FilePath, json);
         }
 
@@ -39,11 +39,11 @@ namespace WebApplication1.Services
         public IEnumerable<Player> GetPlayers() => _players;
 
         // mets à jour l'id du joueur
-        public Player GetPlayer(int id) =>_players.FirstOrDefault(p => p.Id == id);
+        public Player GetPlayer(int id) => _players.FirstOrDefault(p => p.Id == id);
 
         public void AddPlayer(Player player)
         {
-            player.Id = _players.Count > 0 ? _players.Max(p => p.Id) + 1 : 1; 
+            player.Id = _players.Count > 0 ? _players.Max(p => p.Id) + 1 : 1;
             _players.Add(player);
             SavePlayers();
         }
@@ -59,7 +59,7 @@ namespace WebApplication1.Services
         }
 
         public void DeletePlayer(int id)
-        { 
+        {
             var player = GetPlayer(id);
             if (player != null)
             {
